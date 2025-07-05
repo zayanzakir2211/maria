@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Special Birthday Wish</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #000000, #701dff, #2427ce, #1900ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: em;
+      margin: 15px 30px;
+      background: white;
+      background-size: 400% 400%;
+      animation: gradientText 10s ease infinite;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        font-size: 1.5em;
+      margin: 15px 30px;
+      background: white; 
+      background-size: 400% 400%;
+      animation: gradientText 10s ease infinite;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+
+    }
+    .button {
+      margin-top: 25px;
+      padding: 14px 30px;
+      font-size: 1.2em;
+      background: #131313;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s ease;
+      
+    }
+    .button:hover {
+      background: #3e5bff;
+      color: black;
+      transform: translateY(-3px);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ffffff;
+      top: -10px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Here's Your Birthday Wish<br>Only For My Dear Fatu <br>
+  The Shining Pearl</h1>
+  <p>শুভ জন্মদিন, ফাতেমা<br>
+    তোমার জীবনের প্রতিটি বছর যেন তোমাকে নতুন কিছু শেখায়,<br> 
+    যেন মন খারাপের কালো মেঘের ফাঁক দিয়ে একটু আলো এসে পড়ে। <br>
+    তুমি সবসময় অনেক কিছু চেপে রাখো, <br>
+    কিন্তু জানো তো? কেউ না কেউ সবসময় তোমার মনের পাশে থাকে,<br>
+     হয়তো আমি বা আরও কেউ। তুমি দুঃখী থাকো দেখে খারাপ লাগে, <br>
+     তাই আজকের দিনটা অন্তত শুধু তোমার হাসির হোক। </p>
+  <button class="button" onclick="location.href='wish2.html'">Next Page</button>
+  <!-- Birthday Music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2025/03/16/audio_c2c127a814.mp3?filename=happy-birthday-314197.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Confetti Creation
+    for (let i = 0; i < 150; i++) {
+      let confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      confetti.style.backgroundColor = randomColor();
+      document.body.appendChild(confetti);
+    }
+
+    function randomColor() {
+      const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#ff9ff3', '#00d2d3', '#f368e0'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
